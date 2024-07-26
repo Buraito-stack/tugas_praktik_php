@@ -1,19 +1,19 @@
 <?php
 
 echo "1.<br>\n";
-for ($baris = 0; $baris < 3; $baris++) {
-    for ($garis = 0; $garis < 4; $garis++) {
+for ($row = 0; $row < 3; $row++) {
+    for ($column = 0; $column < 4; $column++) {
         echo "*";
     }
     echo "<br>\n";
 }
 
 echo "2.<br>\n";
-for ($baris = 0; $baris < 3; $baris++) {
-    if ($baris == 1) {
+for ($row = 0; $row < 3; $row++) {
+    if ($row == 1) {
         echo "**_**<br>\n";
     } else {
-        for ($garis = 0; $garis < 5; $garis++) {
+        for ($column = 0; $column < 5; $column++) {
             echo "*";
         }
         echo "<br>\n";
@@ -21,33 +21,33 @@ for ($baris = 0; $baris < 3; $baris++) {
 }
 
 echo "3.<br>\n";
-for ($baris = 1; $baris <= 5; $baris++) {
-    for ($garis = 1; $garis <= $baris; $garis++) {
+for ($row = 1; $row <= 5; $row++) {
+    for ($column = 1; $column <= $row; $column++) {
         echo "*";
     }
     echo "<br>\n";
 }
 
 echo "4.<br>\n";
-for ($baris = 5; $baris > 0; $baris--) {
-    for ($garis = 1; $garis <= $baris; $garis++) {
+for ($row = 5; $row > 0; $row--) {
+    for ($column = 1; $column <= $row; $column++) {
         echo "*";
     }
     echo "<br>\n";
 }
 
 echo "5.<br>\n";
-for ($baris = 1; $baris <= 5; $baris++) {
-    if ($baris == 1) {
+for ($row = 1; $row <= 5; $row++) {
+    if ($row == 1) {
         echo "*<br>\n";
-    } elseif ($baris == 2) {
+    } elseif ($row == 2) {
         echo "**<br>\n";
-    } elseif ($baris == 3) {
+    } elseif ($row == 3) {
         echo "*_*<br>\n";
-    } elseif ($baris == 4) {
+    } elseif ($row == 4) {
         echo "*__*<br>\n";
     } else {
-        for ($garis = 0; $garis < 5; $garis++) {
+        for ($column = 0; $column < 5; $column++) {
             echo "*";
         }
         echo "<br>\n";
