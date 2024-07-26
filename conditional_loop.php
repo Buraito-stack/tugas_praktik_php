@@ -18,6 +18,7 @@ for ($baris = 0; $baris < 3; $baris++) {
         }
         echo "<br>\n";
     }
+]
 
 echo "3.<br>\n";
 for ($baris = 1; $baris <= 5; $baris++) {
