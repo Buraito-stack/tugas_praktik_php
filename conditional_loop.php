@@ -40,12 +40,14 @@ echo "5.<br>\n";
 for ($baris = 1; $baris <= 5; $baris++) {
     if ($baris == 1) {
         echo "*<br>\n";
-    } elseif ($baris == 2 || $baris == 3) {
+    } elseif ($baris == 2) {
         echo "**<br>\n";
-    } elseif ($baris == 4) {
+    } elseif ($baris == 3) {
         echo "* *<br>\n";
+    } elseif ($baris == 4) {
+        echo "*  *<br>\n";
     } else {
-        for ($garis = 1; $garis <= 5; $garis++) {
+        for ($garis = 0; $garis < 5; $garis++) {
             echo "*";
         }
         echo "<br>\n";
