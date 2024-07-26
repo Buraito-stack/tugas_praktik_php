@@ -11,7 +11,7 @@ for ($baris = 0; $baris < 3; $baris++) {
 echo "2.<br>\n";
 for ($baris = 0; $baris < 3; $baris++) {
     if ($baris == 1) {
-        echo "**  **<br>\n";
+        echo "**__**<br>\n";
     } else {
         for ($garis = 0; $garis < 5; $garis++) {
             echo "*";
@@ -43,9 +43,9 @@ for ($baris = 1; $baris <= 5; $baris++) {
     } elseif ($baris == 2) {
         echo "**<br>\n";
     } elseif ($baris == 3) {
-        echo "* *<br>\n";
+        echo "*_*<br>\n";
     } elseif ($baris == 4) {
-        echo "*  *<br>\n";
+        echo "*__*<br>\n";
     } else {
         for ($garis = 0; $garis < 5; $garis++) {
             echo "*";
