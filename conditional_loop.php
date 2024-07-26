@@ -40,12 +40,15 @@ echo "5.<br>\n";
 for ($row = 1; $row <= 5; $row++) {
     if ($row == 1) {
         echo "*<br>\n";
-    } elseif ($row == 2) {
+    } else if ($row == 2) {
         echo "**<br>\n";
-    } elseif ($row == 3) {
+        
+    } else if ($row == 3) {
         echo "*_*<br>\n";
-    } elseif ($row == 4) {
+        
+    } else if ($row == 4) {
         echo "*__*<br>\n";
+        
     } else {
         for ($column = 0; $column < 5; $column++) {
             echo "*";
