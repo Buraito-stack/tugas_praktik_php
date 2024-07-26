@@ -37,32 +37,25 @@ $discountAmount = calculateDiscount($price, $discountPercentage);
 $totalPrice = $price - $discountAmount;
 
 // Display results
-// Escape output values to prevent XSS vulnerabilities
-$radiusEscaped = htmlspecialchars($radius);
-$celsiusEscaped = htmlspecialchars($celsius);
-$numberEscaped = htmlspecialchars($number);
-$priceEscaped = htmlspecialchars($price);
-$discountAmountEscaped = htmlspecialchars($discountAmount);
-$totalPriceEscaped = htmlspecialchars($totalPrice);
 
-// Circle Calculations display
+//Circle Calculations display
 echo "<h1>Circle Calculations</h1>";
-echo "<p>The radius of the circle is $radiusEscaped cm</p>";
+echo "<p>The radius of the circle is $radius cm</p>";
 echo "<p>The area of the circle is " . $roundedArea . " cm<sup>2</sup></p>";
 
-// Temperature Conversion display
+//Temerature Conversion display
 echo "<h1>Temperature Conversion</h1>";
-echo "<p>The temperature in Celsius is $celsiusEscaped&deg;C</p>";
+echo "<p>The temperature in Celsius is $celsius&deg;C</p>";
 echo "<p>The temperature in Fahrenheit is " . convertCelsiusToFahrenheit($celsius) . "&deg;F</p>";
 
-// Odd or Even Number display
+//Odd or Even Number display
 echo "<h1>Odd or Even Number</h1>";
-echo "<p>" . checkOddOrEven($numberEscaped) . "</p>";
+echo "<p>" . checkOddOrEven($number) . "</p>";
 
-// Discount Calculation display
+//Discount Calculation display
 echo "<h1>Discount Calculation</h1>";
-echo "<p>The item price is Rp $priceEscaped</p>";
+echo "<p>The item price is Rp $price</p>";
 echo "<p>Discount: $discountPercentage%</p>";
-echo "<p>Discount amount: Rp $discountAmountEscaped</p>";
-echo "<p>Total price after discount: Rp $totalPriceEscaped</p>";
+echo "<p>Discount amount: Rp $discountAmount</p>";
+echo "<p>Total price after discount: Rp $totalPrice</p>";
 ?>
