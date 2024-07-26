@@ -9,16 +9,16 @@ for ($baris = 0; $baris < 3; $baris++) {
 }
 
 echo "2.<br>\n";
-for ($baris = 0; $baris < 2; $baris++) {
+for ($baris = 0; $baris < 3; $baris++) {
     if ($baris == 1) {
-        echo "** **<br>\n";
+        echo "**  **<br>\n";
     } else {
         for ($garis = 0; $garis < 5; $garis++) {
             echo "*";
         }
         echo "<br>\n";
     }
-
+}
     
 echo "3.<br>\n";
 for ($baris = 1; $baris <= 5; $baris++) {
