@@ -12,9 +12,11 @@ function convertCelsiusToFahrenheit(float $celsius): float {
 
 // Function to determine if a number is odd or even
 function checkOddOrEven(int $number): string {
-    return ($number % 2 === 0) 
-        ? "The number $number is even." 
-        : "The number $number is odd.";
+    if ($number % 2 === 0) {
+        return "The number $number is even.";
+    } else {
+        return "The number $number is odd.";
+    }
 }
 
 // Function to calculate discount amount
