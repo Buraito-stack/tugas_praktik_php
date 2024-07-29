@@ -19,6 +19,7 @@ class Book {
         if ($this->availableCopies <= 0) {
             throw new Exception("No copies available to borrow.");
         }
+        
         $this->availableCopies--;
     }
 
