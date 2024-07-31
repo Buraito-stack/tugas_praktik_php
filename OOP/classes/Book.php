@@ -1,11 +1,11 @@
 <?php
 
 class Book {
-    private $title;
-    private $author;
-    private $isbn;
-    private $publicationYear;
-    private $availableCopies;
+    private string $title;
+    private string $author;
+    private string $isbn;
+    private int $publicationYear;
+    private int $availableCopies;
 
     public function __construct($title, $author, $isbn, $publicationYear, $availableCopies) {
         $this->title = $title;
@@ -57,4 +57,4 @@ class Book {
         return $this->availableCopies;
     }
 }
-?>
+
