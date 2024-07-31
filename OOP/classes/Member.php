@@ -1,12 +1,13 @@
 <?php
+require_once 'Person.php';
 
-class Member {
-    private $name;
-    private $memberID;
+
+class Member extends Person {
+    private string $memberID;
     private $borrowedBooks = [];
 
     public function __construct($name, $memberID) {
-        $this->name = $name;
+        parent::__construct($name);
         $this->memberID = $memberID;
     }
 
@@ -39,8 +40,8 @@ class Member {
         ];
     }
 
-    public function getName() {
-        return $this->name;
+    public function getMemberID() {
+        return $this->memberID;
     }
 }
-?>
+
