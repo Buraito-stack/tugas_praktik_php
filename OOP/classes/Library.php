@@ -1,39 +1,70 @@
 <?php
-require_once 'Person.php';
+require_once 'Book.php';
+require_once 'Member.php';
+require_once 'Librarian.php';
 
-class Librarian extends Person {
-    private string $employeeID;
+class Library {
+    private $books = []; 
+    private $members = [];
+    private $librarians = [];
 
-    public function __construct($name, $employeeID) {
-        parent::__construct($name);
-        $this->employeeID = $employeeID;
+    // Konstruktor
+    public function __construct(array $books = [], array $members = [], array $librarians = []) {
+        $this->books = $books;
+        $this->members = $members;
+        $this->librarians = $librarians;
     }
 
-    public function addBook(Book $book, Library $library) {
-        $library->addBook($book);
+    // Menambahkan buku ke perpustakaan
+    public function addBook(Book $book) {
+        $this->books[] = $book; 
     }
 
-    public function removeBook(Book $book, Library $library) {
-        $books = $library->listAvailableBooks();
-        foreach ($books as $existingBook) {
+    // Menghapus buku dari perpustakaan
+    public function removeBook(Book $book) {
+        foreach ($this->books as $key => $existingBook) {
             if ($existingBook->getISBN() === $book->getISBN()) {
-
-                // If the book is found, remove it
-                $library->removeBook($book);
-                
-                return; // Exit after removing the book
+                unset($this->books[$key]); // Hapus buku
+                $this->books = array_values($this->books); // Reindex array
+                return; // Keluar setelah menghapus buku
             }
         }
 
-        // If the book was not found, throw an exception
         throw new Exception("Book not found in the library.");
     }
 
-    public function getLibrarianInfo() {
-        return [
-            'name' => $this->name,
-            'employeeID' => $this->employeeID,
-        ];
+    // Mendaftar anggota
+    public function registerMember(Member $member) {
+        $this->members[] = $member;
+    }
+
+    // Mendaftar pustakawan
+    public function registerLibrarian(Librarian $librarian) {
+        $this->librarians[] = $librarian;
+    }
+
+    // Mencari buku berdasarkan ISBN
+    public function findBookByISBN($isbn) {
+        foreach ($this->books as $book) {
+            if ($book->getISBN() === $isbn) {
+                return $book;
+            }
+        }
+        return null; // Kembalikan null jika buku tidak ditemukan
+    }
+
+    // Menampilkan daftar buku yang tersedia
+    public function listAvailableBooks() {
+        return $this->books;
+    }
+
+    // Menampilkan daftar anggota
+    public function listMembers() {
+        return $this->members;
+    }
+
+    // Menampilkan daftar pustakawan
+    public function listLibrarians() {
+        return $this->librarians;
     }
 }
-
