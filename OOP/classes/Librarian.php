@@ -1,16 +1,12 @@
 <?php
+require_once 'Person.php';
 
-class Librarian {
-    private $name;
-    private $employeeID;
+class Librarian extends Person {
+    private string $employeeID;
 
     public function __construct($name, $employeeID) {
-        $this->name = $name;
+        parent::__construct($name);
         $this->employeeID = $employeeID;
-    }
-
-    public function getName() {
-        return $this->name;
     }
 
     public function addBook(Book $book, Library $library) {
@@ -40,4 +36,4 @@ class Librarian {
         ];
     }
 }
-?>
+
