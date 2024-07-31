@@ -108,6 +108,7 @@ try {
     foreach ($library->listAvailableBooks() as $book) {
         displayBookInfo($book);
     }
+
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "<br>";
 }
@@ -116,7 +117,6 @@ try {
 echo "Test Case 3: Borrowing and Returning Non-Existent Books<br>";
 echo str_repeat("-", 30) . "<br>";
 try {
-    
     // Restu attempts to borrow a non-existent book
     $nonExistentBook = new Book("Non-Existent Book", "Unknown Author", "0000000000", 2024, 0);
     $member2->borrowBook($nonExistentBook);
@@ -125,7 +125,6 @@ try {
 }
 
 try {
-    
     // Restu attempts to return a non-existent book
     $nonExistentBook = new Book("Non-Existent Book", "Unknown Author", "0000000000", 2024, 0);
     $member2->returnBook($nonExistentBook);
@@ -138,7 +137,6 @@ echo str_repeat("-", 30) . "<br>";
 echo "Test Case 4: Removing a Non-Existent Book<br>";
 echo str_repeat("-", 30) . "<br>";
 try {
-    
     // Create a non-existent book
     $nonExistentBook = new Book("Another Non-Existent Book", "Unknown Author", "1111111111", 2025, 0);
     $librarian1->removeBook($nonExistentBook, $library);
@@ -151,7 +149,6 @@ echo str_repeat("-", 30) . "<br>";
 echo "Test Case 5: Borrowing a Book Already Borrowed by Another Member<br>";
 echo str_repeat("-", 30) . "<br>";
 try {
-    
     // Arya borrows "Belajar Laravel dalam 120 Menit"
     $member1->borrowBook($book2);
     echo $member1->getName() . " borrowed '" . $book2->getTitle() . "'.<br>";
@@ -167,11 +164,10 @@ echo str_repeat("-", 30) . "<br>";
 echo "Test Case 6: Adding a Book That Already Exists<br>";
 echo str_repeat("-", 30) . "<br>";
 try {
-    
     // Librarian attempts to add an existing book
     $librarian1->addBook($book1, $library);
     echo $librarian1->getName() . " attempted to add '" . $book1->getTitle() . "' again.<br>";
 } catch (Exception $e) {
     echo "Error (Adding): " . $e->getMessage() . "<br>";
 }
-?>
+
