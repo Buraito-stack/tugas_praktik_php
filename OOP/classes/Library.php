@@ -9,14 +9,17 @@ class Library {
     private array $members = [];
     private array $librarians = [];
 
-    public function __construct(array $books = [], array $members = [], array $librarians = []) 
+    public function __construct(
+        array $books = [], 
+        array $members = [], 
+        array $librarians = []) 
     {
         $this->books = $books;
         $this->members = $members;
         $this->librarians = $librarians;
     }
 
-    public function addBook(Book $book): void 
+   public function addBook(Book $book): void 
     {
         $this->books[] = $book;
     }
@@ -26,7 +29,7 @@ class Library {
         foreach ($this->books as $key => $existingBook) {
             if ($existingBook->getISBN() === $book->getISBN()) {
                 unset($this->books[$key]);
-                $this->books = array_values($this->books);
+                $this->books = array_values($this->books); // Reindex array
 
                 return;
             }
