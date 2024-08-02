@@ -22,8 +22,8 @@ class Book
         $this->availableCopies = $availableCopies;
     }
 
-    public function borrowBook() {
-        
+    public function borrowBook() 
+    {
         if ($this->availableCopies <= 0) {
             throw new Exception("No copies available to borrow.");
         }
@@ -31,11 +31,13 @@ class Book
         $this->availableCopies--;
     }
 
-    public function returnBook() {
+    public function returnBook() 
+    {
         $this->availableCopies++;
     }
 
-    public function getBookInfo() {
+    public function getBookInfo(): array 
+    {
         return [
             'title'           => $this->title,
             'author'          => $this->author,
@@ -45,12 +47,13 @@ class Book
         ];
     }
 
-    public function getTitle() {
+    public function getTitle(): string 
+    {
         return $this->title;
     }
 
-    public function getISBN() {
+    public function getISBN(): string 
+    {
         return $this->isbn;
     }
 }
-
