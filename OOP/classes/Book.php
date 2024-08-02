@@ -37,9 +37,9 @@ class Book
 
     public function getBookInfo() {
         return [
-            'title' => $this->title,
-            'author' => $this->author,
-            'isbn' => $this->isbn,
+            'title'           => $this->title,
+            'author'          => $this->author,
+            'isbn'            => $this->isbn,
             'publicationYear' => $this->publicationYear,
             'availableCopies' => $this->availableCopies,
         ];
