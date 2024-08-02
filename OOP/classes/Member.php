@@ -1,20 +1,22 @@
 <?php
-require_once 'Person.php';
 
+require_once 'Person.php';
+require_once 'Book.php';
 
 class Member extends Person 
 {
     private string $memberID;
-    private $borrowedBooks = [];
+    private array $borrowedBooks = [];
 
-    public function __construct($name, $memberID) {
+    public function __construct(string $name, string $memberID) 
+    {
         parent::__construct($name);
         $this->memberID = $memberID;
     }
 
-    public function borrowBook(Book $book) 
+    public function borrowBook(Book $book): void 
     {
-        if (in_array($book, $this->borrowedBooks)) {
+        if (in_array($book, $this->borrowedBooks, true)) {
             throw new Exception("Book already borrowed.");
         }
         
@@ -22,19 +24,20 @@ class Member extends Person
         $this->borrowedBooks[] = $book;
     }
 
-    public function returnBook(Book $book) 
+    public function returnBook(Book $book): void 
     {
-        $key = array_search($book, $this->borrowedBooks);
+        $key = array_search($book, $this->borrowedBooks, true);
 
-        if (!$key) {
+        if ($key === false) {
             throw new Exception("Book not borrowed.");
         }
 
         $book->returnBook();
         unset($this->borrowedBooks[$key]);
+        $this->borrowedBooks = array_values($this->borrowedBooks);
     }
 
-    public function getMemberInfo() 
+    public function getMemberInfo(): array 
     {
         $borrowedBooksInfo = [];
 
@@ -49,9 +52,10 @@ class Member extends Person
         ];
     }
 
-    public function getMemberID() 
+    public function getMemberID(): string 
     {
         return $this->memberID;
     }
 }
 
+?>
