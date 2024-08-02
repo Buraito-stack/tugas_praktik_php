@@ -1,21 +1,29 @@
 <?php
 
-class Book {
+class Book 
+{
     private string $title;
     private string $author;
     private string $isbn;
     private int $publicationYear;
     private int $availableCopies;
 
-    public function __construct($title, $author, $isbn, $publicationYear, $availableCopies) {
-        $this->title = $title;
-        $this->author = $author;
-        $this->isbn = $isbn;
+    public function __construct(
+        string $title, 
+        string $author, 
+        string $isbn, 
+        int $publicationYear, 
+        int $availableCopies
+    ) {
+        $this->title           = $title;
+        $this->author          = $author;
+        $this->isbn            = $isbn;
         $this->publicationYear = $publicationYear;
         $this->availableCopies = $availableCopies;
     }
 
-    public function borrowBook() {
+    public function borrowBook() 
+    {
         if ($this->availableCopies <= 0) {
             throw new Exception("No copies available to borrow.");
         }
@@ -41,20 +49,8 @@ class Book {
         return $this->title;
     }
 
-    public function getAuthor() {
-        return $this->author;
-    }
-
     public function getISBN() {
         return $this->isbn;
-    }
-
-    public function getPublicationYear() {
-        return $this->publicationYear;
-    }
-
-    public function getAvailableCopies() {
-        return $this->availableCopies;
     }
 }
 
