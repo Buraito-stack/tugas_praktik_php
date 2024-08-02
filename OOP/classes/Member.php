@@ -34,7 +34,7 @@ class Member extends Person
 
         $book->returnBook();
         unset($this->borrowedBooks[$key]);
-        $this->borrowedBooks = array_values($this->borrowedBooks);
+        $this->borrowedBooks = array_values($this->borrowedBooks); 
     }
 
     public function getMemberInfo(): array 
