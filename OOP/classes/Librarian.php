@@ -39,7 +39,7 @@ class Librarian extends Person
     public function getLibrarianInfo(): array 
     {
         return [
-            'name' => $this->name,
+            'name'       => $this->name,
             'employeeID' => $this->employeeID,
         ];
     }
