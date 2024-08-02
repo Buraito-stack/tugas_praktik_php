@@ -9,23 +9,27 @@ class Library {
     private $librarians = [];
 
     // Konstruktor
-    public function __construct(array $books = [], array $members = [], array $librarians = []) {
+    public function __construct(array $books = [], array $members = [], array $librarians = []) 
+    {
         $this->books = $books;
         $this->members = $members;
         $this->librarians = $librarians;
     }
 
     // Menambahkan buku ke perpustakaan
-    public function addBook(Book $book) {
+    public function addBook(Book $book) 
+    {
         $this->books[] = $book; 
     }
 
     // Menghapus buku dari perpustakaan
-    public function removeBook(Book $book) {
+    public function removeBook(Book $book) 
+    {
         foreach ($this->books as $key => $existingBook) {
             if ($existingBook->getISBN() === $book->getISBN()) {
                 unset($this->books[$key]); // Hapus buku
                 $this->books = array_values($this->books); // Reindex array
+
                 return; // Keluar setelah menghapus buku
             }
         }
@@ -34,37 +38,44 @@ class Library {
     }
 
     // Mendaftar anggota
-    public function registerMember(Member $member) {
+    public function registerMember(Member $member) 
+    {
         $this->members[] = $member;
     }
 
     // Mendaftar pustakawan
-    public function registerLibrarian(Librarian $librarian) {
+    public function registerLibrarian(Librarian $librarian) 
+    {
         $this->librarians[] = $librarian;
     }
 
     // Mencari buku berdasarkan ISBN
-    public function findBookByISBN($isbn) {
+    public function findBookByISBN($isbn) 
+    {
         foreach ($this->books as $book) {
             if ($book->getISBN() === $isbn) {
                 return $book;
             }
         }
-        return null; // Kembalikan null jika buku tidak ditemukan
+
+        return null; 
     }
 
     // Menampilkan daftar buku yang tersedia
-    public function listAvailableBooks() {
+    public function listAvailableBooks() 
+    {
         return $this->books;
     }
 
     // Menampilkan daftar anggota
-    public function listMembers() {
+    public function listMembers() 
+    {
         return $this->members;
     }
 
     // Menampilkan daftar pustakawan
-    public function listLibrarians() {
+    public function listLibrarians() 
+    {
         return $this->librarians;
     }
 }
