@@ -22,8 +22,8 @@ class Book
         $this->availableCopies = $availableCopies;
     }
 
-    public function borrowBook() 
-    {
+    public function borrowBook() {
+        
         if ($this->availableCopies <= 0) {
             throw new Exception("No copies available to borrow.");
         }
