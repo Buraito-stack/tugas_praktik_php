@@ -1,5 +1,8 @@
 <?php
+
 require_once 'Person.php';
+require_once 'Book.php';
+require_once 'Library.php';
 
 class Librarian extends Person 
 {
@@ -13,12 +16,12 @@ class Librarian extends Person
         $this->employeeID = $employeeID;
     }
 
-    public function addBook(Book $book, Library $library) 
+    public function addBook(Book $book, Library $library): void 
     {
         $library->addBook($book);
     }
 
-    public function removeBook(Book $book, Library $library) 
+    public function removeBook(Book $book, Library $library): void 
     {
         $books = $library->listAvailableBooks();
 
@@ -26,14 +29,14 @@ class Librarian extends Person
             if ($existingBook->getISBN() === $book->getISBN()) {
                 $library->removeBook($book);
                 
-                return; 
+                return;
             }
         }
         
         throw new Exception("Book not found in the library.");
     }
 
-    public function getLibrarianInfo() 
+    public function getLibrarianInfo(): array 
     {
         return [
             'name' => $this->name,
@@ -42,3 +45,4 @@ class Librarian extends Person
     }
 }
 
+?>
