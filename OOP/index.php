@@ -58,6 +58,16 @@ function displayLibrarianInfo($librarian) {
     echo str_repeat("-", 30) . "<br>";
 }
 
+echo "<h4>MEMBER</h4>";
+displayMemberInfo($member1);
+echo str_repeat("-", 30) . "<br>";
+displayMemberInfo($member2);
+echo str_repeat("-", 30) . "<br>";
+
+echo "<h4>Librarian</h4>";
+displayLibrarianInfo($librarian1);
+echo str_repeat("-", 30) . "<br>";
+
 // Test Case 1: Borrowing and Returning Books
 echo "Test Case 1: Borrowing and Returning Books<br>";
 echo str_repeat("-", 30) . "<br>";
@@ -171,3 +181,20 @@ try {
     echo "Error (Adding): " . $e->getMessage() . "<br>";
 }
 
+// Test Case 7: Borrowing a Removed Book
+echo str_repeat("-", 30) . "<br>";
+echo "Test Case 7: Borrowing a Removed Book<br>";
+echo str_repeat("-", 30) . "<br>";
+try {
+    // Try to borrow the removed book
+    $bookToBorrow = $library->findBookByISBN("1234567890");
+    if ($bookToBorrow === null) {
+        throw new Exception("The book is no longer available in the library.");
+    }
+    $member1->borrowBook($bookToBorrow);
+    echo $member1->getName() . " successfully borrowed '" . $bookToBorrow->getTitle() . "'.<br>";
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "<br>";
+}
+
+?>
